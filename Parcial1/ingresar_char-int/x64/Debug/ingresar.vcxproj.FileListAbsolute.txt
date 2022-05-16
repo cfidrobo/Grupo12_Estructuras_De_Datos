@@ -1,0 +1,2 @@
+C:\workspace\vs\ingresar_10052022\x64\Debug\ingresar.exe
+C:\Users\VonGoethe\source\repos\ingresar_char-int\x64\Debug\ingresar.exe

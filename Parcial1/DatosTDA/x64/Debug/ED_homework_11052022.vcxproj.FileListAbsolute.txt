@@ -1,0 +1,4 @@
+C:\workspace\vs\ED_homework_11052022\x64\Debug\ED_homework_11052022.exe
+C:\Users\cizam\Desktop\ED_homework_11052022\x64\Debug\ED_homework_11052022.exe
+C:\Users\VonGoethe\source\repos\ED_homework_11052022\x64\Debug\DatosTDA.exe
+C:\Users\VonGoethe\source\repos\DatosTDA\x64\Debug\DatosTDA.exe
