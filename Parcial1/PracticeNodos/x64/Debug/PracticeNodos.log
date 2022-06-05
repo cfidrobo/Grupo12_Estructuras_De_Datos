@@ -1,0 +1,6 @@
+﻿  Lista.cpp
+D:\ESPE\3ero y 5to\Estructura de Datos\Curso C++\Objetos\PracticeNodos\Lista.cpp(41,6): warning C4553: "==": el resultado de la expresión no se usa. ¿Quiso decir "="?
+  Nodo.cpp
+  PracticeNodos.cpp
+  Generando código...
+  PracticeNodos.vcxproj -> D:\ESPE\3ero y 5to\Estructura de Datos\Curso C++\Objetos\PracticeNodos\x64\Debug\PracticeNodos.exe

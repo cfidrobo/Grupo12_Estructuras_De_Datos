@@ -1,0 +1,2 @@
+C:\Users\VonGoethe\source\repos\PracticeNodos\x64\Debug\PracticeNodos.exe
+D:\ESPE\3ero y 5to\Estructura de Datos\Curso C++\Objetos\PracticeNodos\x64\Debug\PracticeNodos.exe
