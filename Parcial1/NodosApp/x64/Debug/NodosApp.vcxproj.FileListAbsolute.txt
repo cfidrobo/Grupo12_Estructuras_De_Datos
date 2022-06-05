@@ -1,0 +1,2 @@
+C:\Users\VonGoethe\source\repos\NodosApp\x64\Debug\NodosApp.exe
+D:\ESPE\3ero y 5to\Estructura de Datos\Curso C++\Objetos\NodosApp\x64\Debug\NodosApp.exe
