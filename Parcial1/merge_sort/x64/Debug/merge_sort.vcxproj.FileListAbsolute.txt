@@ -1,0 +1,3 @@
+C:\workspace\vs\merge_sort\x64\Debug\merge_sort.exe
+C:\Users\VonGoethe\source\repos\merge_sort\x64\Debug\merge_sort.exe
+D:\ESPE\3ero y 5to\Estructura de Datos\2do Parcial\merge_sort\x64\Debug\merge_sort.exe
