@@ -5,7 +5,6 @@
 #include <string>
 #include <regex>
 
-
 namespace val {
     float leerNumero(std::string mensaje) {
         std::regex patron("^(?=.)([+-]?([0-9]*)(\\.([0-9]+))?)$");
@@ -51,6 +50,5 @@ namespace val {
 
         return confirmado;
     }
-
 
 }

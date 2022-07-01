@@ -2,6 +2,11 @@
 
 template <typename T>
 class Arreglo {
+
+private:
+    T *_datos = nullptr;
+    int _tamano = 0;
+
 public:
     Arreglo();
     void agregar(int elemento);
@@ -9,10 +14,6 @@ public:
     void imprimir();
     void ordenar();
     int tamano();
-
-private:
-    T *_datos = nullptr;
-    int _tamano = 0;
 
     void merge(int inicio, int medio, int fin);
     void merge_sort(int inferior, int superior);

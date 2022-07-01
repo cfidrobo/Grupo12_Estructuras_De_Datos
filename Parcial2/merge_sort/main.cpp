@@ -3,7 +3,7 @@
 *       Ordenamiento Mezcla Natural
 *       Autor: Cristian Idrobo, Jhon Limones, Paul Mena, Esteban Chablay
 *       Fecha de creación: 22/06/2022
-*       Fecha de modificación: 22/06/2022
+*       Fecha de modificación: 30/06/2022
 *       Grupo: 8 y 12
 *       Github: https://github.com/cfidrobo/Grupo12_Estructuras_De_Datos
 */
