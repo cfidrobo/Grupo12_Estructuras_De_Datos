@@ -1,0 +1,37 @@
+\hypertarget{definiciones_8h_source}{}\doxysection{definiciones.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{enum class} Tecla : \textcolor{keywordtype}{unsigned} \{}
+\DoxyCodeLine{4     Arriba = 72,}
+\DoxyCodeLine{5     Abajo = 80,}
+\DoxyCodeLine{6     Izquierda = 77,}
+\DoxyCodeLine{7     Derecha = 75,}
+\DoxyCodeLine{8     Escape = 27,}
+\DoxyCodeLine{9     Enter = 13,}
+\DoxyCodeLine{10 \};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{inline} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{unsigned} operator+(Tecla \textcolor{keyword}{const} val) \{}
+\DoxyCodeLine{13     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\textcolor{keyword}{>}(val);}
+\DoxyCodeLine{14 \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{enum class} TipoMensaje \{}
+\DoxyCodeLine{17     Error,}
+\DoxyCodeLine{18     Correcto,}
+\DoxyCodeLine{19     Informativo}
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define for\_indexed(...) for\_indexed\_v(i, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define for\_indexed\_v(v, ...) \(\backslash\)}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{    if (std::size\_t v = -\/1)   \(\backslash\)}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{        for (\_\_VA\_ARGS\_\_)     \(\backslash\)}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{            if ((++v, true))}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define DOMINIO\_EMAIL "{}espe.edu.ec"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#ifndef \_MSC\_VER}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define \_getch(...) getch(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

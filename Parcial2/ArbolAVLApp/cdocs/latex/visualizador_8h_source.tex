@@ -1,0 +1,232 @@
+\hypertarget{visualizador_8h_source}{}\doxysection{visualizador.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}arbol\_avl.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <Windows.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_nodo_info}{NodoInfo}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} tamanio() \{ \textcolor{keywordflow}{return} texto\_.length(); \}}
+\DoxyCodeLine{12     }
+\DoxyCodeLine{13     std::string texto() \{ \textcolor{keywordflow}{return} texto\_; \}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} texto(std::string texto) \{}
+\DoxyCodeLine{16         texto\_ = texto;}
+\DoxyCodeLine{17     \}}
+\DoxyCodeLine{18     }
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} posicion\_inicial() \{ \textcolor{keywordflow}{return} posicion\_inicial\_; \}}
+\DoxyCodeLine{20     }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} posicion\_inicial(\textcolor{keywordtype}{int} posicion) \{}
+\DoxyCodeLine{22         posicion\_inicial\_ = posicion;}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} posicion\_final() \{ \textcolor{keywordflow}{return} posicion\_inicial\_ + tamanio(); \}}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} posicion\_final(\textcolor{keywordtype}{int} valor) \{ posicion\_inicial\_ = valor -\/ tamanio(); \}}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} modotail() \{ \textcolor{keywordflow}{return} modotail\_; \}}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} modotail(\textcolor{keywordtype}{int} modo) \{ modotail\_ = modo; \}}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} nodo(\mbox{\hyperlink{class_nodo_a_v_l}{NodoAVL<T>}}* nodo) \{}
+\DoxyCodeLine{31         nodo\_ = nodo;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_nodo_a_v_l}{NodoAVL<T>}}* nodo() \{ \textcolor{keywordflow}{return} nodo\_; \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} padre(\mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* padre) \{}
+\DoxyCodeLine{37         padre\_ = padre;}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* padre() \{ \textcolor{keywordflow}{return} padre\_; \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} izquierdo(\mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* nodo\_info) \{}
+\DoxyCodeLine{43         izquierdo\_ = nodo\_info;}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* izquierdo() \{ \textcolor{keywordflow}{return} izquierdo\_; \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} derecho(\mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* nodo\_info) \{}
+\DoxyCodeLine{49         derecho\_ = nodo\_info;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* derecho() \{ \textcolor{keywordflow}{return} derecho\_; \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{private}:}
+\DoxyCodeLine{55     \mbox{\hyperlink{class_nodo_a_v_l}{NodoAVL<T>}}* nodo\_ = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{56     std::string texto\_ = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} posicion\_inicial\_ = 0;}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} posicion\_final\_ = 0;}
+\DoxyCodeLine{59     \textcolor{keywordtype}{bool} modotail\_ = 1;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* padre\_ = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{62     \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* izquierdo\_ = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{63     \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* derecho\_ = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{67 \textcolor{keyword}{class }\mbox{\hyperlink{class_arbol_visualizador}{ArbolVisualizador}} \{}
+\DoxyCodeLine{68 \textcolor{keyword}{public}:}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} imprimir(\mbox{\hyperlink{class_arbol_a_v_l}{ArbolAVL<T>}} arbol) \{}
+\DoxyCodeLine{70         imprimir(arbol.obtener\_raiz(), 1, 2, 2);}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} imprimir(\mbox{\hyperlink{class_nodo_a_v_l}{NodoAVL<T>}}* raiz, \textcolor{keywordtype}{int} modo, \textcolor{keywordtype}{int} margenSuperior = 2, \textcolor{keywordtype}{int} margenIzquierdo = 2) \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{if} (raiz == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{75             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         COORD cursor\_pos = cursor\_posicion();}
+\DoxyCodeLine{79         }
+\DoxyCodeLine{80         \textcolor{keywordtype}{int} raizTop = cursor\_pos.Y + margenSuperior;}
+\DoxyCodeLine{81         std::vector<NodoInfo<T>*> ultimo;}
+\DoxyCodeLine{82         \mbox{\hyperlink{class_nodo_a_v_l}{NodoAVL<T>}}* siguiente = raiz;}
+\DoxyCodeLine{83         \textcolor{keywordtype}{int} modotail = raiz-\/>modotail();}
+\DoxyCodeLine{84         std::string txt;}
+\DoxyCodeLine{85         }
+\DoxyCodeLine{86         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} nivel = 0; siguiente != \textcolor{keyword}{nullptr}; nivel++) \{}
+\DoxyCodeLine{87             \textcolor{keywordflow}{if} (modo == 1) \{}
+\DoxyCodeLine{88                 std::stringstream ss;}
+\DoxyCodeLine{89                 ss << \textcolor{stringliteral}{"{} "{}} << siguiente-\/>valor() << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{90                 txt = ss.str();}
+\DoxyCodeLine{91             \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93             \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* item = \textcolor{keyword}{new} \mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}();}
+\DoxyCodeLine{94             item-\/>nodo(siguiente);}
+\DoxyCodeLine{95             item-\/>texto(txt);}
+\DoxyCodeLine{96             item-\/>modotail(modotail);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98             \textcolor{keywordflow}{if} (nivel < ultimo.size()) \{}
+\DoxyCodeLine{99                 item-\/>posicion\_inicial(ultimo.at(nivel)-\/>posicion\_final() + 1);}
+\DoxyCodeLine{100                 ultimo[nivel] = item;}
+\DoxyCodeLine{101             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{102                 item-\/>posicion\_inicial(margenIzquierdo);}
+\DoxyCodeLine{103                 ultimo.push\_back(item);}
+\DoxyCodeLine{104             \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106             \textcolor{keywordflow}{if} (nivel > 0) \{}
+\DoxyCodeLine{107                 item-\/>padre(ultimo[nivel -\/ 1]);}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109                 \textcolor{keywordflow}{if} (siguiente == item-\/>padre()-\/>nodo()-\/>izquierdo()) \{}
+\DoxyCodeLine{110                     item-\/>padre()-\/>izquierdo(item);}
+\DoxyCodeLine{111                     \textcolor{keywordtype}{int} pos = (item-\/>posicion\_final() > item-\/>padre()-\/>posicion\_inicial())}
+\DoxyCodeLine{112                         ? item-\/>posicion\_final() : item-\/>padre()-\/>posicion\_inicial();}
+\DoxyCodeLine{113                     item-\/>posicion\_final(pos);}
+\DoxyCodeLine{114                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{115                     item-\/>padre()-\/>derecho(item);}
+\DoxyCodeLine{116                     \textcolor{keywordtype}{int} pos = (item-\/>posicion\_inicial() > item-\/>padre()-\/>posicion\_final())}
+\DoxyCodeLine{117                         ? item-\/>posicion\_inicial() : item-\/>padre()-\/>posicion\_final();}
+\DoxyCodeLine{118                     item-\/>posicion\_inicial(pos);}
+\DoxyCodeLine{119                 \}}
+\DoxyCodeLine{120             \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122             siguiente = siguiente-\/>izquierdo() != \textcolor{keyword}{nullptr}}
+\DoxyCodeLine{123                 ? siguiente-\/>izquierdo() : siguiente-\/>derecho();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125             \textcolor{keywordflow}{for} (; siguiente == \textcolor{keyword}{nullptr}; item = item-\/>padre()) \{}
+\DoxyCodeLine{126                 imprimir(item, raizTop + 2 * nivel);}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128                 \textcolor{keywordflow}{if} (-\/-\/nivel < 0) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130                 \textcolor{keywordflow}{if} (item == item-\/>padre()-\/>izquierdo()) \{}
+\DoxyCodeLine{131                     item-\/>padre()-\/>posicion\_inicial(item-\/>posicion\_final());}
+\DoxyCodeLine{132                     siguiente = item-\/>padre()-\/>nodo()-\/>derecho();}
+\DoxyCodeLine{133                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{134                     \textcolor{keywordflow}{if} (item-\/>padre()-\/>izquierdo() == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{135                         item-\/>padre()-\/>posicion\_final(item-\/>posicion\_inicial());}
+\DoxyCodeLine{136                     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{137                         \textcolor{keywordtype}{int} pos = item-\/>padre()-\/>posicion\_inicial() + ((item-\/>posicion\_inicial() -\/ item-\/>padre()-\/>posicion\_final()) / 2);}
+\DoxyCodeLine{138                         item-\/>padre()-\/>posicion\_inicial(pos);}
+\DoxyCodeLine{139                     \}}
+\DoxyCodeLine{140                 \}}
+\DoxyCodeLine{141             \}}
+\DoxyCodeLine{142         \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         definir\_posicion\_cursor(0, raizTop + 2 * ultimo.size() -\/ 1);}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{keyword}{private}:}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{keywordtype}{void} imprimir(\mbox{\hyperlink{class_nodo_info}{NodoInfo<T>}}* item, \textcolor{keywordtype}{int} top) \{}
+\DoxyCodeLine{150         HANDLE hConsole = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{151         }
+\DoxyCodeLine{152         \textcolor{keywordflow}{if} (item-\/>izquierdo() != \textcolor{keyword}{nullptr} \&\& item-\/>derecho() != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{153             invertir\_colores();}
+\DoxyCodeLine{154             imprimir(item-\/>texto(), top, item-\/>posicion\_inicial());}
+\DoxyCodeLine{155             SetConsoleTextAttribute(hConsole, 7);}
+\DoxyCodeLine{156         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (item-\/>modotail()) \{}
+\DoxyCodeLine{157             tail\_color();}
+\DoxyCodeLine{158             imprimir(item-\/>texto(), top, item-\/>posicion\_inicial());}
+\DoxyCodeLine{159             SetConsoleTextAttribute(hConsole, 7);}
+\DoxyCodeLine{160         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{161             invertir\_colores();}
+\DoxyCodeLine{162             imprimir(item-\/>texto(), top, item-\/>posicion\_inicial());}
+\DoxyCodeLine{163             SetConsoleTextAttribute(hConsole, 7);}
+\DoxyCodeLine{164         \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166         \textcolor{keywordtype}{int} posicion;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168         \textcolor{keywordflow}{if} (item-\/>izquierdo() != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{169             posicion = item-\/>izquierdo()-\/>posicion\_inicial() + item-\/>izquierdo()-\/>tamanio() / 2;}
+\DoxyCodeLine{170             imprimirEnlace(top + 1, \textcolor{stringliteral}{"{}┌"{}}, \textcolor{stringliteral}{"{}┘"{}}, posicion, item-\/>posicion\_inicial());}
+\DoxyCodeLine{171         \}}
+\DoxyCodeLine{172         }
+\DoxyCodeLine{173         \textcolor{keywordflow}{if} (item-\/>derecho() != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{174             posicion = item-\/>derecho()-\/>posicion\_inicial() + item-\/>derecho()-\/>tamanio() / 2;}
+\DoxyCodeLine{175             imprimirEnlace(top + 1, \textcolor{stringliteral}{"{}└"{}}, \textcolor{stringliteral}{"{}┐"{}}, item-\/>posicion\_final() -\/ 1, posicion);}
+\DoxyCodeLine{176         \}}
+\DoxyCodeLine{177     \}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     \textcolor{keywordtype}{void} imprimirEnlace(\textcolor{keywordtype}{int} top, std::string start, std::string end, \textcolor{keywordtype}{int} startPos, \textcolor{keywordtype}{int} endPos) \{}
+\DoxyCodeLine{180         definir\_posicion\_cursor(startPos, top);}
+\DoxyCodeLine{181         std::cout << start;}
+\DoxyCodeLine{182         }
+\DoxyCodeLine{183         imprimir(\textcolor{stringliteral}{"{}─"{}}, top, startPos + 1, endPos);}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185         definir\_posicion\_cursor(endPos, top);}
+\DoxyCodeLine{186         std::cout << end;}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordtype}{void} imprimir(std::string s, \textcolor{keywordtype}{int} top, \textcolor{keywordtype}{int} left, \textcolor{keywordtype}{int} right = -\/1) \{}
+\DoxyCodeLine{190         definir\_posicion\_cursor(left, top);}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192         \textcolor{keywordflow}{if} (right < 0) right = left + s.length();}
+\DoxyCodeLine{193         }
+\DoxyCodeLine{194         \textcolor{keywordflow}{while} (cursor\_posicion().X < right) \{}
+\DoxyCodeLine{195             std::cout << s;}
+\DoxyCodeLine{196         \}}
+\DoxyCodeLine{197     \}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     COORD cursor\_posicion() \{}
+\DoxyCodeLine{200         CONSOLE\_SCREEN\_BUFFER\_INFO csbInfo;}
+\DoxyCodeLine{201         GetConsoleScreenBufferInfo(GetStdHandle(STD\_OUTPUT\_HANDLE), \&csbInfo);}
+\DoxyCodeLine{202         \textcolor{keywordflow}{return} csbInfo.dwCursorPosition;}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordtype}{void} definir\_posicion\_cursor(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y) \{}
+\DoxyCodeLine{206         CONSOLE\_SCREEN\_BUFFER\_INFO csbInfo;}
+\DoxyCodeLine{207         csbInfo.dwCursorPosition.X = x;}
+\DoxyCodeLine{208         csbInfo.dwCursorPosition.Y = y;}
+\DoxyCodeLine{209         SetConsoleCursorPosition(GetStdHandle(STD\_OUTPUT\_HANDLE), csbInfo.dwCursorPosition);}
+\DoxyCodeLine{210     \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{keywordtype}{void} invertir\_colores() \{}
+\DoxyCodeLine{213         HANDLE hConsole = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{214         CONSOLE\_SCREEN\_BUFFER\_INFO csbInfo;}
+\DoxyCodeLine{215         GetConsoleScreenBufferInfo(hConsole, \&csbInfo);}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217         WORD wAttributes = csbInfo.wAttributes;}
+\DoxyCodeLine{218         wAttributes = (wAttributes \& 0xfff0) | ((wAttributes \& 0x000f) << 4);}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         SetConsoleTextAttribute(hConsole, wAttributes);}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{keywordtype}{void} tail\_color() \{}
+\DoxyCodeLine{224         HANDLE hConsole = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{225         SetConsoleTextAttribute(hConsole, 236);}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227 \};}
+
+\end{DoxyCode}
