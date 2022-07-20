@@ -17,6 +17,18 @@ void {\bfseries recorrer} (std\+::function$<$ void(T)$>$ funcion, Tipo\+Recorrid
 \item 
 \mbox{\Hypertarget{class_arbol_a_v_l_a1b67b1e9218eea9471e45419911ca044}\label{class_arbol_a_v_l_a1b67b1e9218eea9471e45419911ca044}} 
 \mbox{\hyperlink{class_nodo_a_v_l}{Nodo\+AVL}}$<$ T $>$ $\ast$ {\bfseries obtener\+\_\+raiz} ()
+\item 
+\mbox{\Hypertarget{class_arbol_a_v_l_ae80e00cce579ebeac3d7bb11d5ca6345}\label{class_arbol_a_v_l_ae80e00cce579ebeac3d7bb11d5ca6345}} 
+void {\bfseries serializar} (std\+::string nombre\+\_\+archivo)
+\item 
+\mbox{\Hypertarget{class_arbol_a_v_l_a017523187317b35e7d1107d2085d0a62}\label{class_arbol_a_v_l_a017523187317b35e7d1107d2085d0a62}} 
+void {\bfseries deserializar} (std\+::string nombre\+\_\+archivo, std\+::function$<$ T(std\+::string)$>$ convertidor)
+\item 
+\mbox{\Hypertarget{class_arbol_a_v_l_a9f00364084826f80fd8b7ea9d26221bb}\label{class_arbol_a_v_l_a9f00364084826f80fd8b7ea9d26221bb}} 
+void {\bfseries serializar\+\_\+recursivo} (\mbox{\hyperlink{class_nodo_a_v_l}{Nodo\+AVL}}$<$ T $>$ $\ast$nodo, std\+::ostream \&archivo)
+\item 
+\mbox{\Hypertarget{class_arbol_a_v_l_a399ffba4f86263e0fd7d8ef88cae62b2}\label{class_arbol_a_v_l_a399ffba4f86263e0fd7d8ef88cae62b2}} 
+void {\bfseries deserializar\+\_\+recursivo} (\mbox{\hyperlink{class_nodo_a_v_l}{Nodo\+AVL}}$<$ T $>$ $\ast$\&nodo, std\+::istream \&archivo, std\+::function$<$ T(std\+::string)$>$ convertidor)
 \end{DoxyCompactItemize}
 
 

@@ -4,21 +4,25 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}menu.h"{}}}
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}servicio.h"{}}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_aplicacion}{Aplicacion}} \{}
-\DoxyCodeLine{7 \textcolor{keyword}{public}:}
-\DoxyCodeLine{8     \mbox{\hyperlink{class_aplicacion}{Aplicacion}}();}
-\DoxyCodeLine{9     \textcolor{keywordtype}{void} iniciar();}
-\DoxyCodeLine{10     \mbox{\hyperlink{class_menu}{Menu}}* get\_menu();}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{private}:}
-\DoxyCodeLine{13     \textcolor{keywordtype}{void} menuArbolAVL();}
-\DoxyCodeLine{14     \textcolor{keywordtype}{void} mostrarManual();}
-\DoxyCodeLine{15     \textcolor{keywordtype}{void} pixelarImagen();}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \mbox{\hyperlink{class_menu}{Menu}}* menu;}
-\DoxyCodeLine{18     \textcolor{keywordtype}{bool} salir = \textcolor{keyword}{false};}
-\DoxyCodeLine{19 \};}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}arbol\_avl.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}visualizador.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_aplicacion}{Aplicacion}} \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_aplicacion}{Aplicacion}}();}
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} iniciar();}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_menu}{Menu}}* get\_menu();}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} menuArbolAVL();}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} mostrarManual();}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} pixelarImagen();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} generarReporte();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_arbol_a_v_l}{ArbolAVL<int>}} arbol;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_menu}{Menu}}* menu;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} salir = \textcolor{keyword}{false};}
+\DoxyCodeLine{23 \};}
 
 \end{DoxyCode}
