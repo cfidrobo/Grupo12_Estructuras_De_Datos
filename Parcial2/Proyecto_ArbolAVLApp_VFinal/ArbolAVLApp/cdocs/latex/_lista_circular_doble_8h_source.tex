@@ -1,0 +1,250 @@
+\hypertarget{_lista_circular_doble_8h_source}{}\doxysection{Lista\+Circular\+Doble.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}nodo.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble}} \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble}}() \{\}}
+\DoxyCodeLine{10     \textcolor{keywordtype}{void} insertarFinal(T valor);}
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} insertarInicio(T valor);}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} insertarEn(\textcolor{keywordtype}{int} indice, T valor);}
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} eliminarEn(\textcolor{keywordtype}{int} indice);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} eliminar(std::function<\textcolor{keywordtype}{bool}(T valor)>);}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* obtenerCabeza();}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* obtenerCola();}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* obtenerNodo(\textcolor{keywordtype}{int} indice);}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* buscar(std::function<\textcolor{keywordtype}{bool}(T valor)>);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} recorrer(std::function<\textcolor{keywordtype}{void}(T valor)>);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} estaVacio();}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} total();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* cabeza = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} tamanio = 0;}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{29 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::insertarFinal}}(T valor)}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* nodo = \textcolor{keyword}{new} \mbox{\hyperlink{class_nodo}{Nodo<T>}}(valor);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordflow}{if} (cabeza == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{34         cabeza = nodo;}
+\DoxyCodeLine{35         cabeza-\/>setAnterior(cabeza);}
+\DoxyCodeLine{36         cabeza-\/>setSiguiente(cabeza);}
+\DoxyCodeLine{37         tamanio++;}
+\DoxyCodeLine{38     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{39         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* cola = obtenerCola();}
+\DoxyCodeLine{40         cola-\/>setSiguiente(nodo);}
+\DoxyCodeLine{41         nodo-\/>setAnterior(cola);}
+\DoxyCodeLine{42         nodo-\/>setSiguiente(cabeza);}
+\DoxyCodeLine{43         cabeza-\/>setAnterior(nodo);}
+\DoxyCodeLine{44         tamanio++;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{49 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::insertarInicio}}(T valor)}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* nodo = \textcolor{keyword}{new} \mbox{\hyperlink{class_nodo}{Nodo<T>}}(valor);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordflow}{if} (estaVacio()) \{}
+\DoxyCodeLine{54         insertarFinal(valor);}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* aux = cabeza;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     cabeza = nodo;}
+\DoxyCodeLine{61     cabeza-\/>setSiguiente(aux);}
+\DoxyCodeLine{62     cabeza-\/>setAnterior(aux-\/>setAnterior());}
+\DoxyCodeLine{63     aux-\/>setAnterior()-\/>setSiguiente(cabeza);}
+\DoxyCodeLine{64     aux-\/>setAnterior(cabeza);}
+\DoxyCodeLine{65     tamanio++;}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{69 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::insertarEn}}(\textcolor{keywordtype}{int} indice, T valor)}
+\DoxyCodeLine{70 \{}
+\DoxyCodeLine{71     \textcolor{keywordflow}{if} (indice < 0 || indice >= tamanio) \{}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordflow}{if} (tamanio == 1) \{}
+\DoxyCodeLine{76         insertarInicio(valor);}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (indice == 0) \{}
+\DoxyCodeLine{79         insertarInicio(valor);}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (indice == tamanio -\/ 1) \{}
+\DoxyCodeLine{82         insertarFinal(valor);}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{85         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* objetivo = obtenerNodo(indice);}
+\DoxyCodeLine{86         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* anterior = objetivo-\/>setAnterior();}
+\DoxyCodeLine{87         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* siguiente = objetivo-\/>setSiguiente();}
+\DoxyCodeLine{88         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* nodo = \textcolor{keyword}{new} \mbox{\hyperlink{class_nodo}{Nodo<T>}}(valor);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         anterior-\/>setSiguiente(nodo);}
+\DoxyCodeLine{91         nodo-\/>setAnterior(anterior);}
+\DoxyCodeLine{92         nodo-\/>setSiguiente(objetivo);}
+\DoxyCodeLine{93         objetivo-\/>setAnterior(nodo);}
+\DoxyCodeLine{94         tamanio++;}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96 \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{99 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::eliminarEn}}(\textcolor{keywordtype}{int} index)}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101     \textcolor{keywordflow}{if} (index < 0 }
+\DoxyCodeLine{102         || }
+\DoxyCodeLine{103         index >= tamanio) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} (index == 0 || tamanio == 1) \{}
+\DoxyCodeLine{106         \textcolor{keywordflow}{if} (tamanio > 1) \{}
+\DoxyCodeLine{107             \mbox{\hyperlink{class_nodo}{Nodo<T>}}* aux = cabeza;}
+\DoxyCodeLine{108             cabeza = cabeza-\/>getSiguiente();}
+\DoxyCodeLine{109             cabeza-\/>setAnterior(aux-\/>setAnterior());}
+\DoxyCodeLine{110             aux-\/>setAnterior()-\/>setSiguiente(cabeza);}
+\DoxyCodeLine{111             \textcolor{keyword}{delete} aux;}
+\DoxyCodeLine{112         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{113             \textcolor{keyword}{delete} cabeza;}
+\DoxyCodeLine{114             cabeza = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{115         \}}
+\DoxyCodeLine{116     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (index == tamanio -\/ 1) \{}
+\DoxyCodeLine{117         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* objetivo = cabeza-\/>setAnterior();}
+\DoxyCodeLine{118         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* aux = objetivo-\/>setAnterior();}
+\DoxyCodeLine{119         cabeza-\/>setAnterior(aux);}
+\DoxyCodeLine{120         aux-\/>setSiguiente(cabeza);}
+\DoxyCodeLine{121         \textcolor{keyword}{delete} objetivo;}
+\DoxyCodeLine{122     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{123         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* objetivo = obtenerNodo(index);}
+\DoxyCodeLine{124         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* anterior = objetivo-\/>setAnterior();}
+\DoxyCodeLine{125         \mbox{\hyperlink{class_nodo}{Nodo<T>}}* siguiente = objetivo-\/>getSiguiente();}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127         \textcolor{keyword}{delete} objetivo;}
+\DoxyCodeLine{128         anterior-\/>setSiguiente(siguiente);}
+\DoxyCodeLine{129         siguiente-\/>setAnterior(anterior);}
+\DoxyCodeLine{130     \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     tamanio = tamanio -\/ 1;}
+\DoxyCodeLine{133 \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{136 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::eliminar}}(std::function<\textcolor{keywordtype}{bool}(T valor)> filtro)}
+\DoxyCodeLine{137 \{}
+\DoxyCodeLine{138     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* nodo = cabeza;}
+\DoxyCodeLine{139     \textcolor{keywordtype}{int} indice = 0;}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keywordflow}{while} (nodo != \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{142         \textcolor{keywordtype}{bool} eliminar = filtro(nodo-\/>setValor());}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         \textcolor{keywordflow}{if} (eliminar) \{}
+\DoxyCodeLine{145             eliminarEn(indice);}
+\DoxyCodeLine{146             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149         nodo = nodo-\/>getSiguiente();}
+\DoxyCodeLine{150         indice++;}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152 \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{155 \textcolor{keyword}{inline} \mbox{\hyperlink{class_nodo}{Nodo<T>}}* \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::obtenerCabeza}}() \{}
+\DoxyCodeLine{156     \textcolor{keywordflow}{return} cabeza;}
+\DoxyCodeLine{157 \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{160 \mbox{\hyperlink{class_nodo}{Nodo<T>}}* \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::obtenerCola}}()}
+\DoxyCodeLine{161 \{}
+\DoxyCodeLine{162     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* cola = cabeza;}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordflow}{if} (cola == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{165         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{166     \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{keywordflow}{while} (cola-\/>getSiguiente() != cabeza) \{}
+\DoxyCodeLine{169         cola = cola-\/>getSiguiente();}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172     \textcolor{keywordflow}{return} cola;}
+\DoxyCodeLine{173 \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{176 \mbox{\hyperlink{class_nodo}{Nodo<T>}}* \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::obtenerNodo}}(\textcolor{keywordtype}{int} indice)}
+\DoxyCodeLine{177 \{}
+\DoxyCodeLine{178     \textcolor{keywordflow}{if} (indice < 0 || indice >= tamanio) \{}
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{183     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* nodo = cabeza;}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \textcolor{keywordflow}{if} (nodo == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{186         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{189         \textcolor{keywordflow}{if} (i == indice) \{}
+\DoxyCodeLine{190             \textcolor{keywordflow}{return} nodo;}
+\DoxyCodeLine{191         \}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193         nodo = nodo-\/>getSiguiente();}
+\DoxyCodeLine{194         i++;}
+\DoxyCodeLine{195     \} \textcolor{keywordflow}{while} (nodo != cabeza);}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{198 \}}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{201 \mbox{\hyperlink{class_nodo}{Nodo<T>}}* \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::buscar}}(std::function<\textcolor{keywordtype}{bool}(T valor)> filtro)}
+\DoxyCodeLine{202 \{}
+\DoxyCodeLine{203     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* nodo = cabeza;}
+\DoxyCodeLine{204     }
+\DoxyCodeLine{205     \textcolor{keywordflow}{if} (nodo == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{206         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{207     \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{if} (filtro(nodo-\/>getValor())) \{}
+\DoxyCodeLine{211             \textcolor{keywordflow}{return} nodo;}
+\DoxyCodeLine{212         \}}
+\DoxyCodeLine{213         }
+\DoxyCodeLine{214         nodo = nodo-\/>getSiguiente();}
+\DoxyCodeLine{215     \} \textcolor{keywordflow}{while} (nodo != cabeza);}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{218 \}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{221 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::recorrer}}(std::function<\textcolor{keywordtype}{void}(T valor)> llamada)}
+\DoxyCodeLine{222 \{}
+\DoxyCodeLine{223     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* nodo = cabeza;}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{keywordflow}{if} (nodo == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{226         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{228     }
+\DoxyCodeLine{229     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{230         llamada(nodo-\/>getValor());}
+\DoxyCodeLine{231         nodo = nodo-\/>getSiguiente();}
+\DoxyCodeLine{232     \} \textcolor{keywordflow}{while} (nodo != cabeza);}
+\DoxyCodeLine{233 \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{236 \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::estaVacio}}()}
+\DoxyCodeLine{237 \{}
+\DoxyCodeLine{238     \textcolor{keywordflow}{return} tamanio == 0;}
+\DoxyCodeLine{239 \}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{242 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<T>::total}}()}
+\DoxyCodeLine{243 \{}
+\DoxyCodeLine{244     \textcolor{keywordflow}{return} tamanio;;}
+\DoxyCodeLine{245 \}}
+
+\end{DoxyCode}

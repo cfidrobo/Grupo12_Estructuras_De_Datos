@@ -1,0 +1,302 @@
+\hypertarget{funciones_8h_source}{}\doxysection{funciones.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}ListaCircularDoble.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}definiciones.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cctype>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <rang/rang.hpp>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <cfloat>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <Windows.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <conio.h>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_funciones}{Funciones}} \{}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keywordtype}{void} limpiar\_consola() \{}
+\DoxyCodeLine{23         COORD topLeft = \{ 0, 0 \};}
+\DoxyCodeLine{24         HANDLE console = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{25         CONSOLE\_SCREEN\_BUFFER\_INFO screen;}
+\DoxyCodeLine{26         DWORD written;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         GetConsoleScreenBufferInfo(console, \&screen);}
+\DoxyCodeLine{29         FillConsoleOutputCharacterA(}
+\DoxyCodeLine{30             console, \textcolor{charliteral}{' '}, screen.dwSize.X * screen.dwSize.Y, topLeft, \&written);}
+\DoxyCodeLine{31         FillConsoleOutputAttribute(}
+\DoxyCodeLine{32             console, FOREGROUND\_GREEN | FOREGROUND\_RED | FOREGROUND\_BLUE,}
+\DoxyCodeLine{33             screen.dwSize.X * screen.dwSize.Y, topLeft, \&written);}
+\DoxyCodeLine{34         SetConsoleCursorPosition(console, topLeft);}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keyword}{static} std::string leer\_cadena(\textcolor{keyword}{const} std::string etiqueta, \textcolor{keywordtype}{bool} permitir\_vacio = \textcolor{keyword}{false}) \{}
+\DoxyCodeLine{38         std::string leido;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keywordflow}{if} (permitir\_vacio) \{}
+\DoxyCodeLine{41             std::getline(std::cin, leido);}
+\DoxyCodeLine{42         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{43             \textcolor{keywordflow}{while} ((std::cout << etiqueta),}
+\DoxyCodeLine{44                 std::getline(std::cin, leido), leido.empty())}
+\DoxyCodeLine{45                 ;}
+\DoxyCodeLine{46         \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{keywordflow}{return} leido;}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{static} std::string leer\_cadena\_regex(\textcolor{keyword}{const} std::string etiqueta, std::string regex) \{}
+\DoxyCodeLine{52         std::string leido;}
+\DoxyCodeLine{53         std::regex cadena\_regex(regex);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55         \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{56             leido = leer\_cadena(etiqueta);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58             \textcolor{keywordflow}{if} (!std::regex\_match(leido, cadena\_regex)) \{}
+\DoxyCodeLine{59                 mostrar\_mensaje(\textcolor{stringliteral}{"{}Formato invalido"{}}, TipoMensaje::Error);}
+\DoxyCodeLine{60             \}}
+\DoxyCodeLine{61         \} \textcolor{keywordflow}{while} (!std::regex\_match(leido, cadena\_regex));}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \textcolor{keywordflow}{return} leido;}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{static} \textcolor{keywordtype}{int} leer\_entero(std::string etiqueta, \textcolor{keywordtype}{int} minimo = INT\_MIN, \textcolor{keywordtype}{int} maximo = INT\_MAX) \{}
+\DoxyCodeLine{67         \textcolor{keywordtype}{int} leido;}
+\DoxyCodeLine{68         \textcolor{keywordtype}{bool} valido;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70         \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{71             std::cout << etiqueta;}
+\DoxyCodeLine{72             std::cin >> leido;}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74             valido = !std::cin.fail();}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76             std::cin.clear();}
+\DoxyCodeLine{77             std::cin.ignore();}
+\DoxyCodeLine{78         \} \textcolor{keywordflow}{while} (!valido || leido < minimo || leido > maximo);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         \textcolor{keywordflow}{return} leido;}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} cadenas\_iguales(std::string a, std::string b) \{}
+\DoxyCodeLine{84         a = trim\_cadena(cadena\_minusculas(a));}
+\DoxyCodeLine{85         b = trim\_cadena(cadena\_minusculas(b));}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         \textcolor{keywordflow}{return} a == b;}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keyword}{static} \textcolor{keywordtype}{double} leer\_flotante(std::string etiqueta, \textcolor{keywordtype}{double} minimo = DBL\_MIN, \textcolor{keywordtype}{double} maximo = DBL\_MAX) \{}
+\DoxyCodeLine{91         \textcolor{keywordtype}{double} leido;}
+\DoxyCodeLine{92         \textcolor{keywordtype}{bool} valido;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94         \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{95             std::cout << etiqueta;}
+\DoxyCodeLine{96             std::cin >> leido;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98             valido = !std::cin.fail();}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100             std::cin.clear();}
+\DoxyCodeLine{101             std::cin.ignore();}
+\DoxyCodeLine{102         \} \textcolor{keywordflow}{while} (!valido || leido < minimo || leido > maximo);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} leido;}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} cedula\_valida(\textcolor{keyword}{const} std::string cedula) \{}
+\DoxyCodeLine{108         \textcolor{keywordflow}{if} (cedula.length() != 10) \{}
+\DoxyCodeLine{109             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{110         \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         \textcolor{keywordtype}{int} sum\_par = 0;}
+\DoxyCodeLine{113         \textcolor{keywordtype}{int} sum\_impar = 0;}
+\DoxyCodeLine{114         \textcolor{keywordtype}{int} sum;}
+\DoxyCodeLine{115         \textcolor{keywordtype}{int} i = 1;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         std::string digits = cedula.substr(0, cedula.size() -\/ 1);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char}\& c : digits) \{}
+\DoxyCodeLine{120             \textcolor{keywordtype}{int} digit = c -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{121             \textcolor{keywordflow}{if} (i \% 2 == 0) \{}
+\DoxyCodeLine{122                 sum\_par += digit;}
+\DoxyCodeLine{123             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{124                 \textcolor{keywordflow}{if} ((digit * 2) > 9) \{}
+\DoxyCodeLine{125                     sum\_impar += (digit * 2) -\/ 9;}
+\DoxyCodeLine{126                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{127                     sum\_impar += (digit * 2);}
+\DoxyCodeLine{128                 \}}
+\DoxyCodeLine{129             \}}
+\DoxyCodeLine{130             i++;}
+\DoxyCodeLine{131         \}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133         sum = sum\_par + sum\_impar;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135         \textcolor{keywordtype}{int} verifier = cedula.at(cedula.size() -\/ 1) -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{136         \textcolor{keywordtype}{int} higher = (10 -\/ (sum \% 10)) + sum;}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138         \textcolor{keywordflow}{if} (sum \% 10 == 0) \{}
+\DoxyCodeLine{139             \textcolor{keywordflow}{return} verifier == 0;}
+\DoxyCodeLine{140         \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         \textcolor{keywordflow}{return} (higher -\/ sum) == verifier;}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \textcolor{keyword}{static} \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<std::string>}} dividir\_cadena(std::string cadena, std::string delimitador) \{}
+\DoxyCodeLine{146         \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<std::string>}} partes;}
+\DoxyCodeLine{147         \textcolor{keywordtype}{size\_t} start = 0;}
+\DoxyCodeLine{148         \textcolor{keyword}{auto} end = cadena.find(delimitador);}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150         \textcolor{keywordflow}{while} (end != std::string::npos) \{}
+\DoxyCodeLine{151             std::string parte = cadena.substr(start, end -\/ start);}
+\DoxyCodeLine{152             partes.insertarFinal(parte);}
+\DoxyCodeLine{153             start = end + delimitador.length();}
+\DoxyCodeLine{154             end = cadena.find(delimitador, start);}
+\DoxyCodeLine{155         \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157         partes.insertarFinal(cadena.substr(start, end));}
+\DoxyCodeLine{158         \textcolor{keywordflow}{return} partes;}
+\DoxyCodeLine{159     \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{keyword}{static} std::string trim\_cadena(std::string cadena) \{}
+\DoxyCodeLine{162         \textcolor{keyword}{auto} wsfront = std::find\_if\_not(cadena.begin(), cadena.end(), [](\textcolor{keywordtype}{int} c) \{ return std::isspace(c); \});}
+\DoxyCodeLine{163         \textcolor{keyword}{auto} wsback = std::find\_if\_not(cadena.rbegin(), cadena.rend(), [](\textcolor{keywordtype}{int} c) \{ return std::isspace(c); \}).base();}
+\DoxyCodeLine{164         \textcolor{keywordflow}{return} (wsback <= wsfront ? std::string() : std::string(wsfront, wsback));}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{keyword}{static} \textcolor{keywordtype}{void} leer\_lineas(}
+\DoxyCodeLine{168         std::string nombre\_archivo,}
+\DoxyCodeLine{169         std::function<\textcolor{keywordtype}{void}(std::string linea, \mbox{\hyperlink{class_lista_circular_doble}{ListaCircularDoble<std::string>}} datos)> callback) \{}
+\DoxyCodeLine{170         std::ifstream archivo(nombre\_archivo);}
+\DoxyCodeLine{171         std::string linea;}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173         \textcolor{keywordflow}{while} (std::getline(archivo, linea)) \{}
+\DoxyCodeLine{174             linea = Funciones::trim\_cadena(linea);}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176             \textcolor{keywordflow}{if} (linea.empty()) \{}
+\DoxyCodeLine{177                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{178             \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180             \textcolor{keyword}{auto} columnas = Funciones::dividir\_cadena(linea, \textcolor{stringliteral}{"{},"{}});}
+\DoxyCodeLine{181             \textcolor{keywordtype}{int} indice = 0;}
+\DoxyCodeLine{182             }
+\DoxyCodeLine{183             columnas.recorrer([\&](std::string token) \{}
+\DoxyCodeLine{184                 columnas.obtenerNodo(indice)-\/>setValor(Funciones::trim\_cadena(token));}
+\DoxyCodeLine{185                 indice++;}
+\DoxyCodeLine{186             \});}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188             callback(linea, columnas);}
+\DoxyCodeLine{189         \}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191         archivo.close();}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keyword}{static} std::string cadena\_minusculas(std::string cadena) \{}
+\DoxyCodeLine{195         std::string resultado(cadena);}
+\DoxyCodeLine{196         }
+\DoxyCodeLine{197         std::transform(resultado.begin(), resultado.end(), resultado.begin(), [](\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} c) \{}
+\DoxyCodeLine{198             return std::tolower(c);}
+\DoxyCodeLine{199         \});}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201         \textcolor{keywordflow}{return} resultado;}
+\DoxyCodeLine{202     \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \textcolor{keyword}{static} \textcolor{keywordtype}{void} mostrar\_mensaje(std::string mensaje, TipoMensaje tipo = TipoMensaje::Informativo) \{}
+\DoxyCodeLine{205         rang::fg color;}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207         \textcolor{keywordflow}{if} (tipo == TipoMensaje::Informativo) \{}
+\DoxyCodeLine{208             color = rang::fg::cyan;}
+\DoxyCodeLine{209         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tipo == TipoMensaje::Correcto) \{}
+\DoxyCodeLine{210             color = rang::fg::green;}
+\DoxyCodeLine{211         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (tipo == TipoMensaje::Error) \{}
+\DoxyCodeLine{212             color = rang::fg::red;}
+\DoxyCodeLine{213         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{214             color = rang::fg::cyan;}
+\DoxyCodeLine{215         \}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217         std::cout}
+\DoxyCodeLine{218             << std::endl << rang::style::bold << color}
+\DoxyCodeLine{219             << \textcolor{stringliteral}{"{}("{}} << mensaje << \textcolor{stringliteral}{"{})"{}}}
+\DoxyCodeLine{220             << std::endl << rang::style::reset;}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} existe\_archivo(std::string nombre\_archivo) \{}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} std::ifstream(nombre\_archivo.c\_str()).good();}
+\DoxyCodeLine{225     \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227     \textcolor{keyword}{static} \textcolor{keywordtype}{int} generar\_aleatorio(\textcolor{keywordtype}{int} minimo = INT\_MIN, \textcolor{keywordtype}{int} maximo = INT\_MAX) \{}
+\DoxyCodeLine{228         std::random\_device rd;}
+\DoxyCodeLine{229         \textcolor{keyword}{static} std::mt19937 gen(rd());}
+\DoxyCodeLine{230         std::uniform\_int\_distribution<> dis(minimo, maximo);}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232         \textcolor{keywordflow}{return} dis(gen);}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} confirmar(std::string pregunta) \{}
+\DoxyCodeLine{236         \textcolor{keywordtype}{char} respuesta = \textcolor{charliteral}{'n'};}
+\DoxyCodeLine{237         std::string entrada;}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239         \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{240             std::cout << pregunta << \textcolor{stringliteral}{"{} (s/n): "{}};}
+\DoxyCodeLine{241             std::cin >> entrada;}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243             std::cin.clear();}
+\DoxyCodeLine{244             std::cin.ignore(std::numeric\_limits<std::streamsize>::max(), \textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246             \textcolor{keywordflow}{if} (entrada.length() > 1) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248             respuesta = std::tolower(entrada.at(0));}
+\DoxyCodeLine{249         \} \textcolor{keywordflow}{while} (respuesta != \textcolor{charliteral}{'s'} \&\& respuesta != \textcolor{charliteral}{'n'});}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251         \textcolor{keywordflow}{return} (respuesta == \textcolor{charliteral}{'s'});}
+\DoxyCodeLine{252     \}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254     \textcolor{keyword}{static} std::string decimal\_fixed(\textcolor{keywordtype}{float} valor, \textcolor{keywordtype}{int} precision = 2) \{}
+\DoxyCodeLine{255         std::stringstream ss;}
+\DoxyCodeLine{256         ss << std::fixed << std::setprecision(precision) << valor;}
+\DoxyCodeLine{257         \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{258     \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260     \textcolor{keyword}{static} std::string leer\_password(std::string prompt) \{}
+\DoxyCodeLine{261         std::string password;}
+\DoxyCodeLine{262         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{263         \textcolor{keywordtype}{int} ch;}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265         std::cout << prompt;}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267         \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{268             ch = \_getch();}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270             \textcolor{keywordflow}{if} (ch == \textcolor{charliteral}{' '} || ch == 27) \{}
+\DoxyCodeLine{271                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{272             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ch == 8) \{}
+\DoxyCodeLine{273                 \textcolor{keywordflow}{if} (i > 0) \{}
+\DoxyCodeLine{274                     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)b \(\backslash\)b"{}};}
+\DoxyCodeLine{275                     password.pop\_back();}
+\DoxyCodeLine{276                     -\/-\/i;}
+\DoxyCodeLine{277                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{278                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{279                 \}}
+\DoxyCodeLine{280             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ch == \textcolor{charliteral}{'\(\backslash\)r'} || ch == \textcolor{charliteral}{'\(\backslash\)t'}) \{}
+\DoxyCodeLine{281                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{282             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ch == 0 || ch == 224) \{}
+\DoxyCodeLine{283                 ch = \_getch();}
+\DoxyCodeLine{284                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{285             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{286                 password.push\_back(ch);}
+\DoxyCodeLine{287                 i++;}
+\DoxyCodeLine{288                 std::cout << \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{289             \}}
+\DoxyCodeLine{290         \}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292         std::cout << std::endl}
+\DoxyCodeLine{293                   << std::endl;}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} password;}
+\DoxyCodeLine{296     \}}
+\DoxyCodeLine{297 \};}
+
+\end{DoxyCode}

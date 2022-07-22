@@ -1,0 +1,88 @@
+\hypertarget{_pixelador_8h_source}{}\doxysection{Pixelador.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <conio.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <pixelbmp/pixelbmp.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_pixelador}{Pixelador}} \{}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_pixelador}{Pixelador}}(std::string image) : \_image(image) \{\}}
+\DoxyCodeLine{9     }
+\DoxyCodeLine{10     \textcolor{keywordtype}{void} pixelar() \{}
+\DoxyCodeLine{11         HWND console = GetConsoleWindow();}
+\DoxyCodeLine{12         HANDLE output = ::GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{13         HDC dc = GetDC(console);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15         CONSOLE\_FONT\_INFOEX Font = \{ \textcolor{keyword}{sizeof}(Font) \};}
+\DoxyCodeLine{16         GetCurrentConsoleFontEx(output, FALSE, \&Font);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         CONSOLE\_FONT\_INFOEX cfi;}
+\DoxyCodeLine{19         cfi.cbSize = \textcolor{keyword}{sizeof}(cfi);}
+\DoxyCodeLine{20         cfi.nFont = 0;}
+\DoxyCodeLine{21         cfi.dwFontSize.X = 1;}
+\DoxyCodeLine{22         cfi.dwFontSize.Y = 1;}
+\DoxyCodeLine{23         cfi.FontFamily = FF\_DONTCARE;}
+\DoxyCodeLine{24         cfi.FontWeight = FW\_NORMAL;}
+\DoxyCodeLine{25         wcscpy\_s(cfi.FaceName, L\textcolor{stringliteral}{"{}Consolas"{}});}
+\DoxyCodeLine{26         SetCurrentConsoleFontEx(GetStdHandle(STD\_OUTPUT\_HANDLE), FALSE, \&cfi);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         ShowWindow(console, SW\_SHOWMAXIMIZED);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         \textcolor{comment}{// COORD pos = \{ 0, 15 \};}}
+\DoxyCodeLine{31         \textcolor{comment}{// SetConsoleCursorPosition(output, pos);}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         std::cout << std::endl;}
+\DoxyCodeLine{34         dibujar(\&dc);}
+\DoxyCodeLine{35         \_getch();}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         SetCurrentConsoleFontEx(output, FALSE, \&Font);}
+\DoxyCodeLine{38         system(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} dibujar(HDC* console) \{}
+\DoxyCodeLine{42         BMP image;}
+\DoxyCodeLine{43         image.ReadFromFile(\_image.c\_str());}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordtype}{double} original\_width = image.TellWidth();}
+\DoxyCodeLine{46         \textcolor{keywordtype}{double} original\_height = image.TellHeight();}
+\DoxyCodeLine{47         \textcolor{keywordtype}{double} ratio = ratio = original\_width / original\_height;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{keywordtype}{double} max\_width = 500;}
+\DoxyCodeLine{50         \textcolor{keywordtype}{double} width = original\_width;}
+\DoxyCodeLine{51         \textcolor{keywordtype}{double} height = original\_height;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{keywordflow}{if} (original\_width > max\_width) \{}
+\DoxyCodeLine{54             height = max\_width / ratio;}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y < height; y++) \{}
+\DoxyCodeLine{58             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x < width; x++) \{}
+\DoxyCodeLine{59                 \textcolor{keywordtype}{int} r = image.GetPixel(x, y).Red;}
+\DoxyCodeLine{60                 \textcolor{keywordtype}{int} g = image.GetPixel(x, y).Green;}
+\DoxyCodeLine{61                 \textcolor{keywordtype}{int} b = image.GetPixel(x, y).Blue;}
+\DoxyCodeLine{62                 \textcolor{keywordtype}{int} a = image.GetPixel(x, y).Alpha;}
+\DoxyCodeLine{63                 COLORREF COLOUR = RGB(r, g, b);}
+\DoxyCodeLine{64                 }
+\DoxyCodeLine{65                 \textcolor{keywordflow}{if} (a == 0) \{}
+\DoxyCodeLine{66                     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)033["{}}}
+\DoxyCodeLine{67                               << 48}
+\DoxyCodeLine{68                               << \textcolor{stringliteral}{"{};2;"{}}}
+\DoxyCodeLine{69                               << r << \textcolor{stringliteral}{"{};"{}} << g << \textcolor{stringliteral}{"{};"{}} << b << \textcolor{stringliteral}{"{}m"{}}}
+\DoxyCodeLine{70                               << \textcolor{stringliteral}{'\#\#'}}
+\DoxyCodeLine{71                               << \textcolor{stringliteral}{"{}\(\backslash\)033[0;00m"{}};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73                     \textcolor{keywordflow}{if} (x == width -\/ 1) \{}
+\DoxyCodeLine{74                         std::cout << std::endl;}
+\DoxyCodeLine{75                     \}}
+\DoxyCodeLine{76                 \}}
+\DoxyCodeLine{77             \}}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{keyword}{private}:}
+\DoxyCodeLine{82     std::string \_image;}
+\DoxyCodeLine{83 \};}
+
+\end{DoxyCode}

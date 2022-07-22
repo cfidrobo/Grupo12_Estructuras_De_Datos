@@ -1,0 +1,61 @@
+\hypertarget{menu_8h_source}{}\doxysection{menu.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu_opcion}{MenuOpcion}} \{}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}(}
+\DoxyCodeLine{10         std::string label,}
+\DoxyCodeLine{11         std::function<\textcolor{keywordtype}{void}()> action = [] \{\},}
+\DoxyCodeLine{12         \textcolor{keywordtype}{bool} must\_wait = \textcolor{keyword}{true},}
+\DoxyCodeLine{13         \textcolor{keywordtype}{bool} is\_enabled = \textcolor{keyword}{true});}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}(}
+\DoxyCodeLine{15         std::function<std::string()> label,}
+\DoxyCodeLine{16         std::function<\textcolor{keywordtype}{void}()> action = [] \{\},}
+\DoxyCodeLine{17         \textcolor{keywordtype}{bool} must\_wait = \textcolor{keyword}{true},}
+\DoxyCodeLine{18         \textcolor{keywordtype}{bool} is\_enabled = \textcolor{keyword}{true});}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}\& enabled(\textcolor{keywordtype}{bool} value);}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}\& enabled(std::function<\textcolor{keywordtype}{bool}()> callable);}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}\& wait(\textcolor{keywordtype}{bool} value);}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}\& wait(std::function<\textcolor{keywordtype}{bool}()> callable);}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}}\& action(std::function<\textcolor{keywordtype}{void}()> callback);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} label(std::string label);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     std::string label();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} is\_enabled();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} must\_wait();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} exec();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{private}:}
+\DoxyCodeLine{34     std::function<std::string()> label\_ = [] \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}[unamed]"{}}; \};}
+\DoxyCodeLine{35     std::function<bool()> must\_wait\_ = [] \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \};}
+\DoxyCodeLine{36     std::function<bool()> is\_enabled\_ = [] \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \};}
+\DoxyCodeLine{37     std::function<void()> action\_ = []\{\};}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}} \{}
+\DoxyCodeLine{41 \textcolor{keyword}{public}:}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_menu}{Menu}}(std::string title = \textcolor{stringliteral}{"{}Menu"{}});}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} agregar(\mbox{\hyperlink{class_menu_opcion}{MenuOpcion}} option);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} iniciar();}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} detener();}
+\DoxyCodeLine{46     \mbox{\hyperlink{class_menu_opcion}{MenuOpcion}} opcion\_salir(std::string label = \textcolor{stringliteral}{"{}Exit"{}});}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} al\_presionar\_f1(std::function<\textcolor{keywordtype}{void}()> callback) \{}
+\DoxyCodeLine{48         f1callback = callback;}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     \textcolor{keywordtype}{bool} running\_ = \textcolor{keyword}{false};}
+\DoxyCodeLine{53     std::string title\_;}
+\DoxyCodeLine{54     std::vector<MenuOpcion> items\_;}
+\DoxyCodeLine{55     std::function<void()> f1callback;}
+\DoxyCodeLine{56 \};}
+
+\end{DoxyCode}
