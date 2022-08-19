@@ -1,0 +1,40 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.5.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = tetris.o NodoDoble.o Posicion.o ListaDoble.o TetrisFuncion.o
+LINKOBJ  = tetris.o NodoDoble.o Posicion.o ListaDoble.o TetrisFuncion.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.7.1/include/c++"
+BIN      = Project1.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+tetris.o: tetris.cpp
+	$(CPP) -c tetris.cpp -o tetris.o $(CXXFLAGS)
+
+NodoDoble.o: NodoDoble.cpp
+	$(CPP) -c NodoDoble.cpp -o NodoDoble.o $(CXXFLAGS)
+
+Posicion.o: Posicion.cpp
+	$(CPP) -c Posicion.cpp -o Posicion.o $(CXXFLAGS)
+
+ListaDoble.o: ListaDoble.cpp
+	$(CPP) -c ListaDoble.cpp -o ListaDoble.o $(CXXFLAGS)
+
+TetrisFuncion.o: TetrisFuncion.cpp
+	$(CPP) -c TetrisFuncion.cpp -o TetrisFuncion.o $(CXXFLAGS)
