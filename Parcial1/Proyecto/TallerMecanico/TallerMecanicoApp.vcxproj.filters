@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Hashlib">
+      <UniqueIdentifier>{b52b4b85-30d5-4c3f-b8d5-08740dbb5d02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pixelbmp">
+      <UniqueIdentifier>{46b792a6-8306-4233-a7f2-4122f944d1b1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="aplicacion.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ControladorLogin.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_md5.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_md5wrapper.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_sha1.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_sha1wrapper.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_sha2ext.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_sha256.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_sha256wrapper.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_sha384wrapper.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_sha512wrapper.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\hashlib\hl_wrapperfactory.cpp">
+      <Filter>Hashlib</Filter>
+    </ClCompile>
+    <ClCompile Include="Marquesina.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ControladorReportes.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ControladorRegistro.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="third_party\include\pixelbmp\pixelbmp.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aplicacion.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="definiciones.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaCircularDoble.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="nodo.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="funciones.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="persona.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ControladorLogin.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hashlibpp.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_exception.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_hashwrapper.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_md5.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_md5wrapper.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha1.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha1wrapper.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha2ext.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha2mac.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha256.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha256wrapper.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha384wrapper.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_sha512wrapper.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_types.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\hashlib\hl_wrapperfactory.h">
+      <Filter>Hashlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Marquesina.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ControladorReportes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Cliente.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Automovil.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ControladorRegistro.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Asistencia.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Pixelador.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\pixelbmp\pixelbmp.h">
+      <Filter>pixelbmp</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\pixelbmp\pixelbmp_BMP.h">
+      <Filter>pixelbmp</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\pixelbmp\pixelbmp_DataStructures.h">
+      <Filter>pixelbmp</Filter>
+    </ClInclude>
+    <ClInclude Include="third_party\include\pixelbmp\pixelbmp_utilities.h">
+      <Filter>pixelbmp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,60 @@
+\hypertarget{_automovil_8h_source}{}\doxysection{Automovil.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_automovil}{Automovil}} \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_automovil}{Automovil}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_automovil}{Automovil}}(std::string marca, std::string modelo, std::string color, std::string placa) \{}
+\DoxyCodeLine{8         this-\/>marca = marca;}
+\DoxyCodeLine{9         this-\/>modelo = modelo;}
+\DoxyCodeLine{10         this-\/>color = color;}
+\DoxyCodeLine{11         this-\/>placa = placa;}
+\DoxyCodeLine{12     \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     std::string getMarca() \{}
+\DoxyCodeLine{15         \textcolor{keywordflow}{return} marca;}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     std::string getModelo() \{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} modelo;}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     std::string getColor() \{}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} color;}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     std::string getPlaca() \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} placa;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} setMarca(std::string marca) \{}
+\DoxyCodeLine{31         this-\/>marca = marca;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} setModelo(std::string modelo) \{}
+\DoxyCodeLine{35         this-\/>modelo = modelo;}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} setColor(std::string color) \{}
+\DoxyCodeLine{39         this-\/>color = color;}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} setPlaca(std::string placa) \{}
+\DoxyCodeLine{43         this-\/>placa = placa;}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     std::string toString() \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} marca + \textcolor{stringliteral}{"{},"{}} + modelo + \textcolor{stringliteral}{"{},"{}} + color + \textcolor{stringliteral}{"{},"{}} + placa;}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{private}:}
+\DoxyCodeLine{51     std::string marca;}
+\DoxyCodeLine{52     std::string modelo;}
+\DoxyCodeLine{53     std::string color;}
+\DoxyCodeLine{54     std::string placa;}
+\DoxyCodeLine{55 \};}
+
+\end{DoxyCode}

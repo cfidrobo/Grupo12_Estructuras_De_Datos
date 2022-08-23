@@ -1,0 +1,56 @@
+\hypertarget{_asistencia_8h_source}{}\doxysection{Asistencia.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Cliente.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_asistencia}{Asistencia}} \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_asistencia}{Asistencia}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_asistencia}{Asistencia}}(\mbox{\hyperlink{class_cliente}{Cliente}} cliente, std::string hora, std::string detalle, \textcolor{keywordtype}{float} valor) \{}
+\DoxyCodeLine{8         this-\/>cliente = cliente;}
+\DoxyCodeLine{9         this-\/>hora = hora;}
+\DoxyCodeLine{10         this-\/>detalle = detalle;}
+\DoxyCodeLine{11         this-\/>valor = valor;}
+\DoxyCodeLine{12     \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_cliente}{Cliente}} getCliente() \{}
+\DoxyCodeLine{15         \textcolor{keywordflow}{return} cliente;}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17     }
+\DoxyCodeLine{18     std::string getHora() \{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} hora;}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     std::string getDetalle() \{}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} detalle;}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} setCliente(\mbox{\hyperlink{class_cliente}{Cliente}} cliente) \{}
+\DoxyCodeLine{27         this-\/>cliente = cliente;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} setHora(std::string hora) \{}
+\DoxyCodeLine{31         this-\/>hora = hora;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} setDetalle(std::string detalle) \{}
+\DoxyCodeLine{35         this-\/>detalle = detalle;}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} setValor(\textcolor{keywordtype}{float} valor) \{}
+\DoxyCodeLine{39         this-\/>valor = valor;}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     std::string toString() \{}
+\DoxyCodeLine{43         \textcolor{keywordflow}{return} cliente.getCedula() + \textcolor{stringliteral}{"{},"{}} + hora + \textcolor{stringliteral}{"{},"{}} + detalle + \textcolor{stringliteral}{"{},"{}} + std::to\_string(valor);}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{private}:}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_cliente}{Cliente}} cliente;}
+\DoxyCodeLine{48     std::string hora;}
+\DoxyCodeLine{49     std::string detalle;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{float} valor = 0;}
+\DoxyCodeLine{51 \};}
+
+\end{DoxyCode}

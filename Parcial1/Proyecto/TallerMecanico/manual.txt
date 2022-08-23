@@ -1,0 +1,82 @@
+﻿| TALLER MECANICO |
+
+
+
+
+
+
+INTRODUCCIÓN
+-----------------------
+
+
+El proyecto se basa en un aplicativo desarrollado en lenguaje C++, el cual permite registrar los datos del Administrador del Taller Mecánico y que a su vez se pueda registrar clientes con sus respectivos datos en este se ingresará la información del auto como su placa, modelo, color, marca y los datos del cliente como su correo electrónico. Todo esto usando listas doblemente enlazadas circulares.
+
+
+
+
+| MANUAL DE USUARIO |
+
+
+
+
+Inciso 1 - Ingreso de Usuarios 
+-----------------------------
+
+
+*Al seleccionar “Registro” se introducirá los parámetros del usuario y contraseña y confirmación, que a su vez mostrará un mensaje de confirmación de registro.
+
+
+*El usuario previamente registrado se ingresará al sistema, se confirmará su registro y le aparecerá el menú del Taller Mecánico.
+  
+* Registro
+   * Registrar al cliente
+   * Registrar asistencia
+* Reportes
+   * Buscar Cliente
+      * Datos de Cliente 
+   * Buscar Auto 
+      * Detalle Asistencia 
+   * Generar reporte 
+      * PDF Asistencias generales
+* Ayuda 
+   * Manual 
+   * Desarrolladores
+   * Desplegar imagen
+*  Salir
+
+
+*Si el Usuario desea terminar la ejecución del programa deberá seleccionar la opción salir.
+
+
+Inciso 2 - Registro Taller Mecánico
+---------------------------------------
+* Al seleccionar “Registro” se desplegará un menú en donde se muestra Registrar Cliente y Registrar Asistencia.
+* Al seleccionar “Registrar Cliente”, nos permite ingresar los datos como el nombre, apellido y cédula para posteriormente ingresar los datos del auto que va a ingresar a la mecánica en este caso ingresamos la placa, modelo, color y marca del auto, el correo se va generar por medio de los datos del cliente. 
+* Al seleccionar “Registro Asistencia” se digitara la cédula del cliente y verificaremos el registro, hora y detalles de asistencia, luego se mostrará que el registro de la asistencia quedó registrado.
+
+
+Inciso 3  - Reporte Taller Mecánico
+—-------------------------------------------
+
+
+* Al seleccionar “Reporte” se despliega un menú donde se muestra Buscar Cliente, Buscar Auto, Generar PDF Generall.
+   * Al seleccionar “Buscar Cliente”, se digitara la cédula del cliente, se verificará su registro, posteriormente brindará información del cliente y su vehículo
+   * Al seleccionar “Buscar Auto” se digitara la placa, se verificará que el auto esté registrado con su placa, y se brindará información de su asistencia 
+   * Al seleccionar “Generar PDF General” se va generar un pdf de todas las asistencias vehiculares en la mecánica.
+
+
+Inciso 4  - Ayuda Taller Mecánico
+—-----------------------------------------
+
+
+*  Al seleccionar “Ayuda” se despliega un menú donde se muestra Manual, Inf App y desarrolladores, Desplegar imagen grupal. 
+   * Al seleccionar “Manual”, se abrirá un archivo txt. con un bloc de notas donde estará detallada el funcionamiento del programa.
+   * Al seleccionar “Inf App y Desarrolladores”, se desplegará la información del programa, sus desarrolladores y las herramientas utilizadas 
+   * Al seleccionar “Desplegar Imagen”, se despliega la imagen del Grupo impreso pixel x pixel
+
+
+Inciso 5  - Salir Taller Mecánico
+—--------------------------------------
+
+
+* Al seleccionar “Salir” se finaliza la ejecución del programa.
