@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tetris: Fichero Fuente TetrisFuncion.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Tetris<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Juego</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TetrisFuncion.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_tetris_funcion_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;conio.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_posicion_8h.html">Posicion.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="_tetris_funcion_8h.html#a1965eaca47dbf3f87acdafc2208f04eb">    9</a></span><span class="preprocessor">#define UP 72</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="_tetris_funcion_8h.html#a4193cd1c8c2e6ebd0e056fa2364a663f">   10</a></span><span class="preprocessor">#define DOWN 80</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="_tetris_funcion_8h.html#a437ef08681e7210d6678427030446a54">   11</a></span><span class="preprocessor">#define LEFT 75</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="_tetris_funcion_8h.html#a80fb826a684cf3f0d306b22aa100ddac">   12</a></span><span class="preprocessor">#define RIGHT 77</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_tetris_funcion.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_tetris_funcion.html">TetrisFuncion</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">int</span> limiteAleatorio;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> saltos;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_tetris_funcion.html#a86fdfcc937f67672d7dffc01e5f6e03f">TetrisFuncion</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="class_tetris_funcion.html#a86fdfcc937f67672d7dffc01e5f6e03f">TetrisFuncion</a>(<span class="keywordtype">int</span> limiteAleatorio, <span class="keywordtype">int</span> saltos);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_function" href="class_tetris_funcion.html#a3f8024a2e1896fc2a095adcf729aa4b9">~TetrisFuncion</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_tetris_funcion.html#af1fbf0f510cd5d856fa3089c456c89a0">gotoxy</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_tetris_funcion.html#a925b36920e800014bb58c37d10dab4d3">cuadro</a>(<span class="keywordtype">int</span> limVer, <span class="keywordtype">int</span> limHoriz);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_tetris_funcion.html#aa09770c629150aba62aaa95beee7c584">ocultarCursor</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_tetris_funcion.html#a23ff54f7e0cdb1961520ee7ee2ea0991">imprimir</a>(<span class="keywordtype">int</span> limVer, <span class="keywordtype">int</span> limHoriz, <a class="code hl_class" href="class_posicion.html">Posicion</a>*&amp; pos);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_tetris_funcion.html#a1aad02ce75553e36aaccd82b37ab00f3">comenzarJuego</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="ttc" id="a_posicion_8h_html"><div class="ttname"><a href="_posicion_8h.html">Posicion.h</a></div></div>
+<div class="ttc" id="aclass_posicion_html"><div class="ttname"><a href="class_posicion.html">Posicion</a></div><div class="ttdef"><b>Definition:</b> Posicion.h:2</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html"><div class="ttname"><a href="class_tetris_funcion.html">TetrisFuncion</a></div><div class="ttdef"><b>Definition:</b> TetrisFuncion.h:14</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html_a1aad02ce75553e36aaccd82b37ab00f3"><div class="ttname"><a href="class_tetris_funcion.html#a1aad02ce75553e36aaccd82b37ab00f3">TetrisFuncion::comenzarJuego</a></div><div class="ttdeci">void comenzarJuego()</div><div class="ttdef"><b>Definition:</b> TetrisFuncion.cpp:201</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html_a23ff54f7e0cdb1961520ee7ee2ea0991"><div class="ttname"><a href="class_tetris_funcion.html#a23ff54f7e0cdb1961520ee7ee2ea0991">TetrisFuncion::imprimir</a></div><div class="ttdeci">void imprimir(int limVer, int limHoriz, Posicion *&amp;pos)</div><div class="ttdef"><b>Definition:</b> TetrisFuncion.cpp:67</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html_a3f8024a2e1896fc2a095adcf729aa4b9"><div class="ttname"><a href="class_tetris_funcion.html#a3f8024a2e1896fc2a095adcf729aa4b9">TetrisFuncion::~TetrisFuncion</a></div><div class="ttdeci">~TetrisFuncion()</div><div class="ttdef"><b>Definition:</b> TetrisFuncion.cpp:17</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html_a86fdfcc937f67672d7dffc01e5f6e03f"><div class="ttname"><a href="class_tetris_funcion.html#a86fdfcc937f67672d7dffc01e5f6e03f">TetrisFuncion::TetrisFuncion</a></div><div class="ttdeci">TetrisFuncion()</div><div class="ttdef"><b>Definition:</b> TetrisFuncion.cpp:13</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html_a925b36920e800014bb58c37d10dab4d3"><div class="ttname"><a href="class_tetris_funcion.html#a925b36920e800014bb58c37d10dab4d3">TetrisFuncion::cuadro</a></div><div class="ttdeci">void cuadro(int limVer, int limHoriz)</div><div class="ttdef"><b>Definition:</b> TetrisFuncion.cpp:29</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html_aa09770c629150aba62aaa95beee7c584"><div class="ttname"><a href="class_tetris_funcion.html#aa09770c629150aba62aaa95beee7c584">TetrisFuncion::ocultarCursor</a></div><div class="ttdeci">void ocultarCursor()</div><div class="ttdef"><b>Definition:</b> TetrisFuncion.cpp:59</div></div>
+<div class="ttc" id="aclass_tetris_funcion_html_af1fbf0f510cd5d856fa3089c456c89a0"><div class="ttname"><a href="class_tetris_funcion.html#af1fbf0f510cd5d856fa3089c456c89a0">TetrisFuncion::gotoxy</a></div><div class="ttdeci">void gotoxy(int x, int y)</div><div class="ttdef"><b>Definition:</b> TetrisFuncion.cpp:20</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

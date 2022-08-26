@@ -1,0 +1,43 @@
+\hypertarget{nodo_8h_source}{}\doxysection{nodo.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_nodo}{Nodo}} \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_nodo}{Nodo}}(T valor) \{}
+\DoxyCodeLine{7         this-\/>valor = valor;}
+\DoxyCodeLine{8     \}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     T getValor() \{}
+\DoxyCodeLine{11         \textcolor{keywordflow}{return} valor;}
+\DoxyCodeLine{12     \}}
+\DoxyCodeLine{13     }
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} setValor(T valor) \{}
+\DoxyCodeLine{15         this-\/>valor = valor;}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17     }
+\DoxyCodeLine{18     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* getSiguiente() \{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} siguiente;}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21     }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} setSiguiente(\mbox{\hyperlink{class_nodo}{Nodo<T>}}* siguiente) \{}
+\DoxyCodeLine{23         this-\/>siguiente = siguiente;}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* getAnterior() \{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} anterior;}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} setAnterior(\mbox{\hyperlink{class_nodo}{Nodo<T>}}* anterior) \{}
+\DoxyCodeLine{31         this-\/>anterior = anterior;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{private}:}
+\DoxyCodeLine{35     T valor;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* siguiente = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_nodo}{Nodo<T>}}* anterior = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{38 \};}
+
+\end{DoxyCode}

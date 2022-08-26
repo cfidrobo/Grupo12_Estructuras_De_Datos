@@ -1,0 +1,36 @@
+\hypertarget{persona_8h_source}{}\doxysection{persona.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_persona}{Persona}} \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_persona}{Persona}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_persona}{Persona}}(std::string cedula, std::string nombres, std::string apellidos, std::string email) \{}
+\DoxyCodeLine{8         this-\/>cedula = cedula;}
+\DoxyCodeLine{9         this-\/>nombres = nombres;}
+\DoxyCodeLine{10         this-\/>apellidos = apellidos;}
+\DoxyCodeLine{11         this-\/>email = email;}
+\DoxyCodeLine{12     \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     std::string get\_cedula() \{ \textcolor{keywordflow}{return} cedula; \}}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} set\_cedula(std::string cedula) \{ this-\/>cedula = cedula; \}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     std::string get\_nombres() \{ \textcolor{keywordflow}{return} nombres; \}}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} set\_nombres(std::string nombres) \{ this-\/>nombres = nombres; \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     std::string get\_apellidos() \{ \textcolor{keywordflow}{return} apellidos; \}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} set\_apellidos(std::string apellidos) \{ this-\/>apellidos = apellidos; \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     std::string get\_email() \{ \textcolor{keywordflow}{return} email; \}}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} set\_email(std::string email) \{ this-\/>email = email; \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{private}:}
+\DoxyCodeLine{27     std::string cedula;}
+\DoxyCodeLine{28     std::string nombres;}
+\DoxyCodeLine{29     std::string apellidos;}
+\DoxyCodeLine{30     std::string email;}
+\DoxyCodeLine{31 \};}
+
+\end{DoxyCode}
